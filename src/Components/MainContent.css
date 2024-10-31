@@ -1,0 +1,176 @@
+/* Main content section */
+.main-content {
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 100%;
+}
+
+.main-content h2 {
+  font-size: 2.5rem;
+  color: #004d00;
+  margin-bottom: 1.5rem;
+}
+
+.main-content p {
+  font-size: 1.2rem;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+/* Brand Grid Layout */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dynamic column layout */
+  grid-gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.brand-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  height: 700px; /* Ensure all logos are vertically centered */
+}
+
+.brand-item img {
+  max-width: 100%; /* Ensure uniform sizing */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto; /* Center horizontally */
+}
+
+/* Specific adjustments for each logo */
+.brand-item img.large-logo {
+  max-width: 85%; /* Ensure uniform logo sizing for larger logos */
+}
+
+/* Greentech Solutions Logo */
+.brand-item img[alt="Green Tech Solutions"] {
+  max-width: 110%; /* Set specific size for Green Tech Solutions */
+}
+
+/* Greenergy Builders Logo */
+.brand-item img[alt="Green Energy Builders"] {
+  max-width: 150%; /* Set specific size for Green Energy Builders */
+}
+
+/* Greenergy Agritech Logo */
+.brand-item img[alt="Green Energy Agritech"] {
+  max-width: 140%; /* Set specific size for Green Energy Agritech */
+}
+
+/* Greenergy Industrial Services Logo */
+.brand-item img[alt="Greenergy Industrial Services"] {
+  max-width: 110%; /* Set specific size for Greenergy Industrial Services */
+}
+.brand-item img[alt="Solar Logo"] {
+  max-width: 90%; /* Set specific size for Greenergy Industrial Services */
+}
+
+/* Apply the background images */
+.brand-details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 1.2rem;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+  width: 80%;
+  max-width: 300px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+  font-family: 'Montserrat', sans-serif; /* Font applied here */
+}
+
+/* Hover effect: Show details */
+.brand-item:hover .brand-details,
+.brand-item:focus-within .brand-details {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%);
+}
+
+/* Text styling */
+.brand-details p {
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif; /* Font applied here */
+}
+
+.brand-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #FFD700;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif; /* Font applied here */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1200px) {
+  .brand-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brand-details {
+    width: 90%;
+    max-width: 250px;
+    padding: 0.8rem;
+  }
+
+  .brand-details h3 {
+    font-size: 1.1rem;
+  }
+
+  .brand-details p {
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-item {
+    height: 450px;
+  }
+
+  .brand-details {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    width: 95%;
+  }
+}
+
+/* Animation for fading in on page load */
+.main-content {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

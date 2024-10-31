@@ -1,0 +1,167 @@
+/* Reset margins and padding to zero for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure body and html use the full viewport */
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+    font-family: 'Space Mono', monospace; /* Default font family */
+    background-color: #f4f4f4; /* Light background to improve performance */
+}
+
+/* Global variables for transitions */
+:root {
+    --transition-time: 0.3s;
+    --bg-color: #f4f4f4;
+    --main-color: #004d00;
+}
+
+/* Smooth scrolling between sections */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Set root container to take up full viewport space */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure it spans the full screen */
+    width: 100vw; /* Full width of the viewport */
+    background-color: var(--bg-color); /* Lightweight background for better performance */
+}
+
+/* Ensure full-screen layout for content inside */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    background-size: cover;
+    animation: fadeIn var(--transition-time) ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Simple fade-in animation for the main content */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Page header with smooth transition on hover */
+h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', sans-serif;
+    transition: color var(--transition-time) ease-in-out;
+}
+
+/* Paragraphs, links, and lists smooth transition */
+p, li, a {
+    transition: color var(--transition-time) ease-in-out;
+}
+
+/* Interactive elements like buttons and links */
+a, button {
+    transition: var(--transition-time);
+}
+
+/* Hover effect for buttons and links */
+button:hover, a:hover {
+    transform: translateY(-2px); /* Smooth floating effect */
+    transition: transform var(--transition-time) ease-in-out;
+}
+
+/* Section styling with smooth transition for background color */
+section {
+    padding: 3rem 1.5rem;
+    transition: background-color var(--transition-time), transform var(--transition-time);
+    background-color: var(--bg-color);
+}
+
+/* Form and input fields smooth transitions */
+input, textarea, button {
+    transition: background-color var(--transition-time), color var(--transition-time), border var(--transition-time);
+}
+
+/* Focus effects for form inputs */
+input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid var(--main-color);
+    background-color: #fff; /* Light background on focus */
+}
+
+/* Button hover effect */
+button {
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    transition: transform var(--transition-time), background-color var(--transition-time);
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+}
+
+button:hover {
+    transform: scale(1.05); /* Slight scaling on hover */
+    background-color: #006600; /* Darker green on hover */
+}
+
+/* Footer Styling */
+footer {
+    padding: 2rem;
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+    transition: background-color var(--transition-time);
+}
+
+footer a {
+    color: white;
+    transition: color var(--transition-time);
+}
+
+footer a:hover {
+    color: #FFD700; /* Highlight on hover */
+}
+
+/* Footer layout improvements */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    background-color: var(--main-color);
+}
+
+.footer-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-input {
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+/* Footer Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-top, .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+

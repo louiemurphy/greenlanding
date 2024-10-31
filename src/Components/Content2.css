@@ -1,0 +1,150 @@
+/* Background Image and Section */
+.content2 {
+  background: url('../assets/content2.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: space-between; /* Content on left, company info on right */
+  align-items: center;
+  padding: 3rem;
+  position: relative;
+  font-family: 'Poppins', sans-serif;/* Use Roboto as default font */
+  z-index: 1; /* Ensure it's above the background */
+}
+
+/* Add a dark gradient overlay for better text visibility */
+.content2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Dark gradient */
+  z-index: -1; /* Keep it behind the content */
+}
+
+/* Content Wrapper for the Icons and Text */
+.content-wrapper {
+  color: white;
+  text-align: left;
+  max-width: 700px; /* Increased max-width */
+  padding-left: 2rem; /* Add some padding on the left */
+  z-index: 1; /* Ensure it's above the gradient */
+  
+}
+
+.content-wrapper h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Subtle text shadow */
+}
+
+/* Icons Container */
+.icons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 120px; /* Increased max-width to accommodate larger images */
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.icon-item img {
+  width: 100%;
+  max-width: 95px; /* Control the maximum size of the icons */
+  height: auto;
+  margin-bottom: 1rem; /* Add space between the icon and the label */
+}
+
+.icon-item p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Hover effect for icons */
+.icon-item:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+.content-wrapper {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Company Info Styling */
+.company-info {
+  color: #e6e6e6; /* Very light gray text */
+  font-family: 'Poppins', sans-serif;/* Use Roboto for clean readability */
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  position: absolute;
+  right: 4.5rem;
+  top: 25%; /* Adjusted from 19% to 24% to move it lower */
+  max-width: 400px;
+  font-size: 1rem;
+  padding: 0%;
+  z-index: 1;
+}
+
+.company-info p {
+  margin-bottom: 1rem; /* Space between paragraphs */
+  color: #f0f0f0; /* Even lighter gray for paragraph text */
+}
+
+button {
+  background-color: white;
+  color: green;
+  font-size: 1rem;
+  padding: 1rem 3rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  width: auto; /* Ensures the button adapts to content */
+  min-width: 350px; /* Ensures a minimum button size */
+  max-width: 500px; /* Prevents the button from growing too large */
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures buttons are centered in the container */
+  gap: 1.5rem; /* Adds space between buttons */
+}
+
+
+button:hover {          
+  background-color: white;
+  transform: translateY(-3px); /* Slightly raise the button on hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .company-info {
+    right: 2rem; /* Adjust for smaller screens */
+    top: 10%; /* Adjust top position */
+    max-width: 90%; /* Full width on smaller screens */
+  }
+
+  .content-wrapper h1 {
+    font-size: 2rem; /* Reduce heading size on mobile */
+  }
+
+  .icon-item img {
+    max-width: 70px; /* Smaller icons for mobile */
+  }
+
+  /* Stack buttons vertically on smaller screens */
+  .buttons-container {
+    flex-direction: column;
+  }
+}
