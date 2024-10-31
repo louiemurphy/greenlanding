@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/greenlanding/static/css/main.792c5b62.css",
-    "main.js": "/greenlanding/static/js/main.7cbae5bc.js",
+    "main.js": "/greenlanding/static/js/main.a469a28b.js",
     "static/media/lp.JPG": "/greenlanding/static/media/lp.03cd28f51febaa2e5bba.JPG",
     "static/media/lp2.jpg": "/greenlanding/static/media/lp2.dfd70dc35fc7a6277053.jpg",
     "static/media/lp3.jpg": "/greenlanding/static/media/lp3.5898bce789bcd411ab44.jpg",
@@ -27,10 +27,10 @@
     "static/media/solar.png": "/greenlanding/static/media/solar.f665955c49ef7cadec39.png",
     "index.html": "/greenlanding/index.html",
     "main.792c5b62.css.map": "/greenlanding/static/css/main.792c5b62.css.map",
-    "main.7cbae5bc.js.map": "/greenlanding/static/js/main.7cbae5bc.js.map"
+    "main.a469a28b.js.map": "/greenlanding/static/js/main.a469a28b.js.map"
   },
   "entrypoints": [
     "static/css/main.792c5b62.css",
-    "static/js/main.7cbae5bc.js"
+    "static/js/main.a469a28b.js"
   ]
 }
