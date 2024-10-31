@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/greenlanding/static/css/main.792c5b62.css",
+    "main.js": "/greenlanding/static/js/main.7cbae5bc.js",
+    "static/media/lp.JPG": "/greenlanding/static/media/lp.03cd28f51febaa2e5bba.JPG",
+    "static/media/lp2.jpg": "/greenlanding/static/media/lp2.dfd70dc35fc7a6277053.jpg",
+    "static/media/lp3.jpg": "/greenlanding/static/media/lp3.5898bce789bcd411ab44.jpg",
+    "static/media/solarbackground.jpg": "/greenlanding/static/media/solarbackground.dafc471f74947a39255f.jpg",
+    "static/media/content2.jpg": "/greenlanding/static/media/content2.8227263f1d00d3a93e0a.jpg",
+    "static/media/header.jpg": "/greenlanding/static/media/header.0d627e7b9aff628ef527.jpg",
+    "static/media/builders2.jpg": "/greenlanding/static/media/builders2.e911745b20b97a837fd7.jpg",
+    "static/media/icon.png": "/greenlanding/static/media/icon.c15ab889ac2c96b0b4ed.png",
+    "static/media/agritech.png": "/greenlanding/static/media/agritech.a122c019fc0f0015507e.png",
+    "static/media/mobility1.png": "/greenlanding/static/media/mobility1.2b0f8d621f708f7d8563.png",
+    "static/media/agri.jpg": "/greenlanding/static/media/agri.a17e7a99013157102888.jpg",
+    "static/media/mob-background.jpeg": "/greenlanding/static/media/mob-background.dc9f760745287b400095.jpeg",
+    "static/media/solutions.png": "/greenlanding/static/media/solutions.9002585e25c46389c978.png",
+    "static/media/environmental.png": "/greenlanding/static/media/environmental.b1aec2e12aa7285500d8.png",
+    "static/media/energy.png": "/greenlanding/static/media/energy.6836a7f73e920a901ca3.png",
+    "static/media/economics.png": "/greenlanding/static/media/economics.8a071519604169aa9547.png",
+    "static/media/service.jpg": "/greenlanding/static/media/service.c31af1b2a4f2f3b13deb.jpg",
+    "static/media/greentech.png": "/greenlanding/static/media/greentech.e04bf0b0ec986619c71b.png",
+    "static/media/gdc.png": "/greenlanding/static/media/gdc.5276f768aa3b8b93d72a.png",
+    "static/media/greenergy.png": "/greenlanding/static/media/greenergy.95b120172ee9bf021f94.png",
+    "static/media/industrial.png": "/greenlanding/static/media/industrial.804aed2ffd9e0ccd3d15.png",
+    "static/media/builders.png": "/greenlanding/static/media/builders.477e54de31056437fe26.png",
+    "static/media/solar.png": "/greenlanding/static/media/solar.f665955c49ef7cadec39.png",
+    "index.html": "/greenlanding/index.html",
+    "main.792c5b62.css.map": "/greenlanding/static/css/main.792c5b62.css.map",
+    "main.7cbae5bc.js.map": "/greenlanding/static/js/main.7cbae5bc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.792c5b62.css",
+    "static/js/main.7cbae5bc.js"
+  ]
+}
