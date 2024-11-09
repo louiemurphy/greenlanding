@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';  // Import useLocation hook
+import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import GreenergyMobility from './Components/GreenergyMobility';
@@ -12,7 +12,7 @@ import Contact from './Components/Contact';
 import Home from './Components/Home';
 
 function App() {
-  const location = useLocation();  // Hook to get the current route
+  const location = useLocation();
 
   return (
     <div className="App">
@@ -27,7 +27,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* Greenergy Solar is removed because it's an external link */}
         <Route path="/greenergy-mobility" element={<GreenergyMobility />} />
         <Route path="/greentech-solutions" element={<GreentechSolutions />} />
         <Route path="/greenergy-builders" element={<GreenergyBuilders />} />

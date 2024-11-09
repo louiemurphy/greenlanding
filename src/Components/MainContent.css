@@ -174,3 +174,22 @@
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+/* Center-align h3 but keep paragraph text left-aligned */
+.brand-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #FFD700;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center; /* Center-aligns the h3 text */
+}
+
+.brand-details p {
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left; /* Left-aligns the paragraph text for better readability */
+}

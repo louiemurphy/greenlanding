@@ -1,18 +1,37 @@
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css'; // Import your updated CSS file
+import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faArrowLeft, faHome, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons'; // Import relevant icons
+import { faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-import headerImage from '../assets/header.jpg'; 
-import lpImage from '../assets/lp.JPG'; 
-import lpImage2 from '../assets/lp2.jpg'; 
-import lpImage3 from '../assets/lp3.jpg'; 
-import logo from '../assets/gdc.png'; // Import the logo image
+import headerImage from '../assets/header.jpg';
+import lpImage from '../assets/lp.JPG';
+import lpImage2 from '../assets/lp2.jpg';
+import lpImage3 from '../assets/lp3.jpg';
+import logo from '../assets/gdc.png';
 
-// Throttle function to optimize the scroll event
+// Custom hook for smooth scrolling
+const useSmoothScroll = () => {
+  const scrollToSection = useCallback((sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 100; // Adjust based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
+
+  return scrollToSection;
+};
+
+// Throttle function to optimize scroll performance
 const throttle = (func, limit) => {
   let lastFunc;
   let lastRan;
@@ -38,150 +57,177 @@ const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const scrollToSection = useSmoothScroll();
 
-  // Scroll handler to hide/show header based on scroll direction
   const handleScroll = useCallback(() => {
     const currentScrollY = window.pageYOffset;
-    if (currentScrollY > lastScrollY.current) {
-      setIsVisible(false); // Hide header on scroll down
+    if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+      setIsVisible(false);
     } else {
-      setIsVisible(true);  // Show header on scroll up
+      setIsVisible(true);
     }
     lastScrollY.current = currentScrollY;
   }, []);
 
-  // Apply the throttled scroll event listener
   useEffect(() => {
-    const throttledHandleScroll = throttle(handleScroll, 100); // Limit the scroll handler to fire every 100ms
+    const throttledHandleScroll = throttle(handleScroll, 100);
     window.addEventListener('scroll', throttledHandleScroll);
     return () => window.removeEventListener('scroll', throttledHandleScroll);
   }, [handleScroll]);
 
-  // Toggle mobile menu visibility
-  const toggleMobileMenu = () => setIsMobileMenuOpen(prevState => !prevState);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prevState => !prevState);
+    // Prevent body scroll when mobile menu is open
+    document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : 'unset';
+  };
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.sidebar') && !event.target.closest('.hamburger-icon')) {
+        setIsMobileMenuOpen(false);
+        document.body.style.overflow = 'unset';
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   return (
     <>
       <header className={`header ${isVisible ? '' : 'hidden'}`}>
-  <div className="header-container">
-    {/* Logo */}
-    <div className="logo">
-      <img src={logo} alt="GREENERGY PH" className="logo-img" />
-    </div>
+        <div className="header-container">
+          <div className="logo">
+            <img src={logo} alt="GREENERGY PH logo" className="logo-img" loading="lazy" />
+          </div>
 
-    {/* Navigation */}
-<nav className="nav-container">
-  <ul className="nav-list1">
-    <li className="nav-item dropdown">
-      <a href="#" aria-label="Brands">BRANDS</a>
-      <ul className="dropdown-content">
-  <li><a href="https://www.facebook.com/greenergysolarph" target="_blank" rel="noopener noreferrer">GREENERGY SOLAR</a></li>
-  <li><a href="/greenergy-mobility" target="_blank" rel="noopener noreferrer">GREENERGY MOBILITY</a></li>
-  <li><a href="/greentech-solutions" target="_blank" rel="noopener noreferrer">GREENTECH SOLUTIONS</a></li>
-  <li><a href="/greenergy-builders" target="_blank" rel="noopener noreferrer">GREENERGY BUILDERS</a></li>
-  <li><a href="/greenergy-industrial" target="_blank" rel="noopener noreferrer">GREENERGY INDUSTRIAL <br></br>SERVICES</a></li>
-</ul>
-
+          <nav className="nav-container">
+            <ul className="nav-list1">
+              <li className="nav-item dropdown">
+  <a style={{ cursor: 'pointer' }}>BRANDS</a>
+  <ul className="dropdown-content">
+    <li>
+      <a href="https://www.facebook.com/greenergysolarph" target="_blank" rel="noopener noreferrer">GREENERGY SOLAR</a>
     </li>
-    <li className="nav-item"><a href="/about" target="_blank" rel="noopener noreferrer">ABOUT US</a></li>
-    <li className="nav-item"><a href="/contact" target="_blank" rel="noopener noreferrer">CONTACT US</a></li>
+    <li>
+      <Link to="/greenergy-mobility">GREENERGY MOBILITY</Link>
+    </li>
+    <li>
+      <Link to="/greentech-solutions">GREENTECH SOLUTIONS</Link>
+    </li>
+    <li>
+      <Link to="/greenergy-builders">GREENERGY BUILDERS</Link>
+    </li>
+    <li>
+      <Link to="/greenergy-industrial">GREENERGY INDUSTRIAL SERVICES</Link>
+    </li>
   </ul>
-</nav>
-    
+</li>
 
-    {/* Hamburger icon */}
-    <FontAwesomeIcon 
-      icon={faBars} 
-      className="hamburger-icon" 
-      onClick={toggleMobileMenu}
-      aria-label="Toggle mobile menu"
-    />
-  </div>
-</header>
+              <li className="nav-item">
+                <a onClick={() => scrollToSection('about')} style={{cursor: 'pointer'}}>ABOUT US</a>
+              </li>
+              <li className="nav-item">
+                <a onClick={() => scrollToSection('contact')} style={{cursor: 'pointer'}}>CONTACT US</a>
+              </li>
+            </ul>
+          </nav>
 
-      {/* Sidebar Component */}
+          <FontAwesomeIcon 
+            icon={faBars} 
+            className="hamburger-icon" 
+            onClick={toggleMobileMenu} 
+            aria-label="Toggle mobile menu"
+          />
+        </div>
+      </header>
+
       <div className={`sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
         <nav className="sidebar-nav">
-          {/* Back Button */}
           <div className="sidebar-back-button">
             <FontAwesomeIcon 
               icon={faArrowLeft} 
               className="back-icon"
-              onClick={toggleMobileMenu} // Close sidebar when back button is clicked
+              onClick={toggleMobileMenu} 
               aria-label="Close Sidebar"
             />
           </div>
           <ul>
-            <li>
-              <Link to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/about">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact">
-                Contact Us
-              </Link>
-            </li>
+            <li><a onClick={() => { scrollToSection('home'); toggleMobileMenu(); }} style={{cursor: 'pointer'}}>Home</a></li>
+            <li><a onClick={() => { scrollToSection('about'); toggleMobileMenu(); }} style={{cursor: 'pointer'}}>Book An Expert</a></li>
+            <li><a onClick={() => { scrollToSection('contact'); toggleMobileMenu(); }} style={{cursor: 'pointer'}}>Aftersales</a></li>
           </ul>
         </nav>
       </div>
 
       <div className="content-container">
-    <div className="carousel-section">
-        <Carousel 
-            showThumbs={false} 
-            showStatus={false} 
-            infiniteLoop={true}  // Enable infinite loop
-            autoPlay={true}      // Enable auto sliding
-            interval={3000}      // Interval between slides in milliseconds (3 seconds)
-            stopOnHover={true}   // Stops sliding when hovered
-            renderIndicator={(onClickHandler, isSelected, index, label) => {
-                return (
-                    <li
-                        className={`carousel-dot ${isSelected ? 'selected' : ''}`}
-                        onClick={onClickHandler}
-                        onKeyDown={onClickHandler}
-                        value={index}
-                        key={index}
-                        role="button"
-                        tabIndex={0}
-                        title={`${label} ${index + 1}`}
-                        aria-label={`${label} ${index + 1}`}
-                    />
-                );
-            }}
-        >
+        <div className="carousel-section">
+          <Carousel 
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop={true}
+            autoPlay={true}
+            interval={3000}
+            stopOnHover={true}
+            transitionTime={800}
+            swipeable={true}
+            emulateTouch={true}
+            dynamicHeight={false}
+            renderIndicator={(onClickHandler, isSelected, index, label) => (
+              <li
+                className={`carousel-dot ${isSelected ? 'selected' : ''}`}
+                onClick={onClickHandler}
+                onKeyDown={onClickHandler}
+                value={index}
+                key={index}
+                role="button"
+                tabIndex={0}
+                title={`${label} ${index + 1}`}
+                aria-label={`${label} ${index + 1}`}
+              />
+            )}
+          >
             <div className="image-container">
-                <img src={headerImage} alt="Header Slide" />
+              <img src={headerImage} alt="Header Slide" loading="lazy" />
             </div>
             <div className="image-container">
-                <img src={lpImage} alt="Slide 2" />
+              <img src={lpImage} alt="Slide 2" loading="lazy" />
             </div>
             <div className="image-container">
-                <img src={lpImage2} alt="Slide 3" />
+              <img src={lpImage2} alt="Slide 3" loading="lazy" />
             </div>
             <div className="image-container">
-                <img src={lpImage3} alt="Slide 4" />
+              <img src={lpImage3} alt="Slide 4" loading="lazy" />
             </div>
-        </Carousel>
-        <ButtonSection />
-    </div>
-</div>
-
+          </Carousel>
+          <ButtonSection scrollToSection={scrollToSection} />
+        </div>
+      </div>
     </>
   );
 };
 
-const ButtonSection = () => (
+const ButtonSection = ({ scrollToSection }) => (
   <div className="buttons-overlay">
-    <button aria-label="Our Products">OUR PRODUCTS</button>
-    <button aria-label="Book with the Experts">BOOK WITH THE EXPERTS</button>
-    <button aria-label="Get Quote">GET QUOTE</button>
+    <button 
+      onClick={() => scrollToSection('products')} 
+      aria-label="Our Products"
+    >
+      OUR PRODUCTS
+    </button>
+    <button 
+      onClick={() => scrollToSection('book')} 
+      aria-label="Book with the Experts"
+    >
+      BOOK WITH THE EXPERTS
+    </button>
+    <button 
+      onClick={() => scrollToSection('quote')} 
+      aria-label="Get Quote"
+    >
+      GET QUOTE
+    </button>
   </div>
 );
 

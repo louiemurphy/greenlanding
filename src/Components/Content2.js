@@ -17,7 +17,7 @@ const Content2 = () => {
           </div>
           <div className="icon-item">
             <img src={require('../assets/energy.png')} alt="Energy Security" />
-            <p>ENERGY SECURITY</p>
+            <p>Energy <br></br>Security</p>
           </div>
         </div>
         <div className="buttons-container">

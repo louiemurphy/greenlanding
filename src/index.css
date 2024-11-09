@@ -20,11 +20,8 @@ html, body {
     --transition-time: 0.3s;
     --bg-color: #f4f4f4;
     --main-color: #004d00;
-}
-
-/* Smooth scrolling between sections */
-html {
-    scroll-behavior: smooth;
+    --hover-color: #006600; /* Darker hover color */
+    --text-color: #333; /* Default text color */
 }
 
 /* Set root container to take up full viewport space */
@@ -95,7 +92,7 @@ input:focus, textarea:focus {
     background-color: #fff; /* Light background on focus */
 }
 
-/* Button hover effect */
+/* Button styles */
 button {
     cursor: pointer;
     padding: 0.8rem 1.5rem;
@@ -106,9 +103,16 @@ button {
     border: none;
 }
 
+/* Button hover effect */
 button:hover {
     transform: scale(1.05); /* Slight scaling on hover */
-    background-color: #006600; /* Darker green on hover */
+    background-color: var(--hover-color); /* Darker green on hover */
+}
+
+/* Accessibility focus state */
+button:focus, a:focus {
+    outline: 2px solid #FFD700; /* Highlight with a visible outline */
+    outline-offset: 2px;
 }
 
 /* Footer Styling */
@@ -163,5 +167,8 @@ footer a:hover {
         align-items: center;
         text-align: center;
     }
-}
 
+    .content-container, section {
+        padding: 2rem 1rem; /* Adjust padding for smaller screens */
+    }
+}

@@ -1,15 +1,14 @@
 import React from 'react';
 import './Footer.css';
-import greenergy from '../assets/greenergy.png'; // Your Greenergy logo image
-import icons from '../assets/icon.png'; // Your icons image (like certifications)
-import { FaFacebookF, FaInstagram, FaYoutube, FaTiktok, FaEnvelope } from 'react-icons/fa'; // Import your icons
+import green2 from '../assets/green2.png'; // Greenergy logo
+import icons from '../assets/icon.png'; // Certification icons
+import { FaFacebookF, FaInstagram, FaYoutube, FaTiktok, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <footer>
-      {/* Top Section */}
+      {/* Subscription Form Section */}
       <div className="footer-top">
-        {/* Subscription Form */}
         <div className="footer-subscribe">
           <input type="text" placeholder="Full name" className="subscribe-input" />
           <input type="email" placeholder="Email" className="subscribe-input" />
@@ -17,31 +16,37 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Section */}
-      <div className="footer-bottom">
-        {/* Logo and Icons */}
+      {/* Main Footer Content Section */}
+      <div className="footer-main">
+        {/* Left Section: Logo and Certifications */}
         <div className="footer-left">
-          
-          <img src={icons} alt="Certifications" className="footer-icons certification-icons" />
+          <img src={green2} alt="Greenergy Logo" className="footer-logo" />
+          <div className="footer-certifications">
+            <img src={icons} alt="Certifications" className="certification-icons" />
+          </div>
         </div>
 
-        {/* Contact Information */}
+        {/* Right Section: Contact Information */}
         <div className="footer-right">
           <h4>Address:</h4>
-          <p>Oro Chamber Business Development Centre<br />
-            Macapagal Drive (Petron), Brgy Sr. Augut<br />
+          <p>
+            Oro Chamber Business Development Centre<br />
+            Macapagal Drive (Petron), Brgy Sr. August<br />
             Pueblo De Oro Business Park<br />
-            Carmen, Cagayan de Oro City</p>
+            Carmen, Cagayan de Oro City, Philippines
+          </p>
 
           <h4>Contact Us:</h4>
-          <p>(+63) 927 979 1555 (Globe)<br />
+          <p>
+            (+63) 927 979 1555 (Globe)<br />
             (+63) 908 291 5451 (Smart)<br />
-            (+63) 88 881 5250</p>
+            (+63) 88 881 5250
+          </p>
 
           <h4>Email Us:</h4>
           <p>info@greenergy.ph</p>
 
-          {/* Social Icons */}
+          {/* Social Media Icons */}
           <div className="social-icons">
             <FaFacebookF className="social-icon" />
             <FaInstagram className="social-icon" />
