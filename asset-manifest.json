@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/greenlanding/static/css/main.792c5b62.css",
-    "main.js": "/greenlanding/static/js/main.a469a28b.js",
+    "main.css": "/greenlanding/static/css/main.112a7ceb.css",
+    "main.js": "/greenlanding/static/js/main.0245a7af.js",
     "static/media/lp.JPG": "/greenlanding/static/media/lp.03cd28f51febaa2e5bba.JPG",
     "static/media/lp2.jpg": "/greenlanding/static/media/lp2.dfd70dc35fc7a6277053.jpg",
     "static/media/lp3.jpg": "/greenlanding/static/media/lp3.5898bce789bcd411ab44.jpg",
@@ -21,16 +21,16 @@
     "static/media/service.jpg": "/greenlanding/static/media/service.c31af1b2a4f2f3b13deb.jpg",
     "static/media/greentech.png": "/greenlanding/static/media/greentech.e04bf0b0ec986619c71b.png",
     "static/media/gdc.png": "/greenlanding/static/media/gdc.5276f768aa3b8b93d72a.png",
-    "static/media/greenergy.png": "/greenlanding/static/media/greenergy.95b120172ee9bf021f94.png",
+    "static/media/green2.png": "/greenlanding/static/media/green2.95b120172ee9bf021f94.png",
     "static/media/industrial.png": "/greenlanding/static/media/industrial.804aed2ffd9e0ccd3d15.png",
     "static/media/builders.png": "/greenlanding/static/media/builders.477e54de31056437fe26.png",
     "static/media/solar.png": "/greenlanding/static/media/solar.f665955c49ef7cadec39.png",
     "index.html": "/greenlanding/index.html",
-    "main.792c5b62.css.map": "/greenlanding/static/css/main.792c5b62.css.map",
-    "main.a469a28b.js.map": "/greenlanding/static/js/main.a469a28b.js.map"
+    "main.112a7ceb.css.map": "/greenlanding/static/css/main.112a7ceb.css.map",
+    "main.0245a7af.js.map": "/greenlanding/static/js/main.0245a7af.js.map"
   },
   "entrypoints": [
-    "static/css/main.792c5b62.css",
-    "static/js/main.a469a28b.js"
+    "static/css/main.112a7ceb.css",
+    "static/js/main.0245a7af.js"
   ]
 }
