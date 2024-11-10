@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
+import { Routes, Route, useLocation, BrowserRouter } from 'react-router-dom';  // Changed HashRouter to BrowserRouter
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import GreenergyMobility from './Components/GreenergyMobility';
@@ -48,4 +48,12 @@ function App() {
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <BrowserRouter>  {/* Wrap everything in BrowserRouter */}
+      <App />
+    </BrowserRouter>
+  );
+}
+
+export default AppWrapper;
